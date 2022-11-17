@@ -1,53 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:11:10 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/16 19:32:19 by omozo-av         ###   ########.fr       */
+/*   Created: 2022/11/15 14:27:13 by omozo-av          #+#    #+#             */
+/*   Updated: 2022/11/16 19:37:02 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *str, int c, size_t len)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
+	size_t				i;
+	unsigned char		*str1;
+	unsigned char		*str2;
 
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 	i = 0;
-	while (i <= len--)
-	{
-		((unsigned char *)str)[i] = c;
+	while (i < n && str1[i] == str2[i])
 		i++;
-	}
-	return (str);
+	return (str1[i] - str2[i]);
 }
 /*
-// copies len times of c into str
+// compares two strings and return subtraction of their ascii number if difference
 #include <string.h>
-#include <unistd.h>
 #include <stdio.h>
-
 int main()
 {
-	int i = 0;
-	char str[10] = "nicolas";
-	char str2[10] = "nicolas";
+	char s1[] = "nl";
+	char s2[] = "n";
 
-	ft_memset(str, '.', 2 * sizeof(char));
-	memset(str2, '.', 2 * sizeof(char));
-	while (str[i])
-	{
-		printf("-%c-", str[i]);
-		i++;
-	}write(1, "\n", 1);
-	
-	i = 0;
-	while (str2[i])
-	{
-		printf("/%c/", str2[i]);
-		i++;
-	}
+	printf("%d\n", memcmp(s1,s2,0));
+	printf("%d\n", ft_memcmp(s1,s2,0));
+	printf("%d\n", 'o' - 'h');
 }*/

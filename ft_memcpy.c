@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/15 12:11:00 by omozo-av          #+#    #+#             */
+/*   Updated: 2022/11/16 19:36:23 by omozo-av         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memcpy(void *dst, void *src, size_t n)
@@ -13,7 +25,9 @@ void	*ft_memcpy(void *dst, void *src, size_t n)
 	((char *)dst)[i] = 0;
 	return ((char *)dst);
 }
-/*#include <stdio.h>
+/*
+// copies n bytes from src to dst // doesnt care about overlapping, check memmove for that
+#include <stdio.h>
 #include <string.h>
 int main()
 {

@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:10:56 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/16 19:38:32 by omozo-av         ###   ########.fr       */
+/*   Created: 2022/11/16 20:06:17 by omozo-av          #+#    #+#             */
+/*   Updated: 2022/11/16 20:38:59 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include "libft.h"
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	if (c >= 040 && c <= 176)
-		return (1);
-	return (0);
+	char	*sub;
+
+	if (s[0] == 0)
+		return ((char *)s);
+	sub = malloc (ft_strlen (&s[start]) * sizeof(char));
+	if (!(sub))
+		return (0);
+	return (ft_memcpy(sub, (void *)&s[start], len));
 }
 /*
-// checks if printable character
-#include <ctype.h>
+// gets a subsstring of s from start to len bytes 
 #include <stdio.h>
-int main(int ac, char **av)
+int main()
 {
-	printf("%d\n", ft_isprint(av[1][0]));
-	printf("%d", isprint(av[1][0]));
+	char uno[] = "";
+	printf("%s", ft_substr(uno, 2,2));
+	
 }*/

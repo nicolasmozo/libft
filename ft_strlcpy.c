@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/15 12:11:34 by omozo-av          #+#    #+#             */
+/*   Updated: 2022/11/16 19:23:17 by omozo-av         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
@@ -18,7 +30,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	dst[i] = 0;
 	return (len);
 }
-/*#include <string.h>
+/*
+// copies src into dst until dstsize passed. returns len of src
+#include <string.h>
 #include <stdio.h>
 // for why the -1 in the loop, check rules in the man 
 int main()

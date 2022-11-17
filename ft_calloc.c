@@ -1,54 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:10:21 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/16 19:24:03 by omozo-av         ###   ########.fr       */
+/*   Created: 2022/11/16 18:53:31 by omozo-av          #+#    #+#             */
+/*   Updated: 2022/11/16 19:40:42 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *str, size_t n)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	i;
+	char	*ptr;
 
-	i = 0;
-	if (n == 0)
-		return ;
-	else
-	{
-		while (i < n)
-		{
-			((char *)str)[i] = 0;
-			i++;
-		}
-	}
+	ptr = malloc (count * size);
+	if (!(ptr))
+		return (0);
+	ft_bzero (ptr, count * size);
+	return (ptr);
 }
 /*
-// fills with zeros a string of size n 
-#include <strings.h>
+// allocates size * count bytes of memory returns a pointer to it
 #include <stdio.h>
-#include <unistd.h>
 int main()
-{
-	char test[10] = "nicolas";
-	char test2[10] = "nicolas";
-	int i = 0;
-	bzero(&test[3], (0));
-	ft_bzero(&test2[3], 0);
-	while (test[i])
+{   
+	char *uno = ft_calloc(3,sizeof(char));
+	char *dos = calloc(3,sizeof(char));
+	printf("%p with size %lu\n", uno, sizeof(uno));
+	printf("%p with size %lu\n", dos, sizeof(dos));
+
+	while(*uno)
 	{
-		printf(":%c:", test[i]);
-		i++;
-	}
-	i = 0;
-	while (test2[i])
-	{
-		printf("-%c-", test2[i]);
-		i++;
+		printf("%c", *uno);
+		uno++;
 	}
 }*/

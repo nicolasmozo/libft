@@ -1,14 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/15 12:11:28 by omozo-av          #+#    #+#             */
+/*   Updated: 2022/11/16 19:27:12 by omozo-av         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
@@ -33,7 +35,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst[size_dst] = 0;
 	return (total);
 }
-/*#include <stdio.h>
+/*
+// appends dstsize values of src at the end of dst - 
+#include <stdio.h>
 #include <string.h>
 int main()
 {

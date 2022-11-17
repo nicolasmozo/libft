@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:12:03 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/16 19:15:41 by omozo-av         ###   ########.fr       */
+/*   Created: 2022/11/16 20:53:58 by omozo-av          #+#    #+#             */
+/*   Updated: 2022/11/16 22:45:36 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	char	*join;
+
+	join = malloc ((ft_strlen (s1) + ft_strlen (s2)) * sizeof(char));
+	if (!(join))
+		return (0);
+	ft_memcpy (join, (void *)s1, ft_strlen (s1));
+	ft_strlcat (&join[ft_strlen (s1)], s2, ft_strlen (s2) + 1);
+	return (join);
 }
 /*
-// converts a char from upper to lower case
-#include <ctype.h>
+// concatenates s1 with s2, returns concatenated str
 #include <stdio.h>
 int main()
 {
-	char c = 'Z';
-	printf("%c", tolower(c));
+	char uno[] = "nico";
+	char dos[] = " las";
+	printf("%s", ft_strjoin(uno,dos));
 }*/

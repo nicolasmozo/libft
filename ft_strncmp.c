@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:12:03 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/16 19:15:41 by omozo-av         ###   ########.fr       */
+/*   Created: 2022/11/15 12:09:10 by omozo-av          #+#    #+#             */
+/*   Updated: 2022/11/16 19:20:33 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	size_t	i;
+
+	i = 0;
+	while ((s1[i] || s2[i] || i < n) && (s1[i] == s2[i]))
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 /*
-// converts a char from upper to lower case
-#include <ctype.h>
+// compares two strings and return the subtraction of the ascii numbers
+#include <string.h>
 #include <stdio.h>
 int main()
 {
-	char c = 'Z';
-	printf("%c", tolower(c));
+	char s1[] = "nicolas";
+	char s2[] = "nicolas";
+
+	printf(":%d:\n", strncmp(s1,s2,7));
+	printf("-%d-\n", ft_strncmp(s1,s2,7));
 }*/
