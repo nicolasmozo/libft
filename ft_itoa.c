@@ -6,7 +6,7 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 21:15:35 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/19 22:13:29 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/19 22:14:17 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char *ft_itoa(int n)
 }
 #include <stdio.h>
 int main()
-{   
+{   d
     int uno = ft_atoi(INT_MIN);
     
     printf("%s", ft_itoa(uno));
