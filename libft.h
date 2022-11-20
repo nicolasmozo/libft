@@ -14,9 +14,8 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int	ft_atoi(const char *str);
+char	*ft_strdup(const char *s1);
 
 
-const char INT_MAX [] = "2147483647";
-const char INT_MIN [] = "-2147483648";
 
 #endif
