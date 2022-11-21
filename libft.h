@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/21 22:38:47 by omozo-av          #+#    #+#             */
+/*   Updated: 2022/11/21 23:19:56 by omozo-av         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
 #include <stddef.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 
 void	*ft_memcpy(void *dst, void *src, size_t n);
@@ -15,6 +28,7 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int	ft_atoi(const char *str);
 char	*ft_strdup(const char *s1);
+char	*ft_itoa(int n);
 
 
 
