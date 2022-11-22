@@ -1,5 +1,5 @@
 NAME = libft.a
-OBJS = ${SRCS:.c=.o}
+#OBJS = ${SRCS:.c=.o}
 SRCS = ft_isascii.c\
 				ft_memcpy.c\
 				ft_putstr_fd.c\
@@ -34,17 +34,15 @@ SRCS = ft_isascii.c\
 				ft_putnbr_fd.c\
 				ft_strjoin.c\
 				ft_strnstr.c\
-#INCLUDES = libft.h\
-LIB = ar rcs
-CC = gcc
+CC = cc
 RM = rm -f
 COMPILE_FLAGS = -Wall -Wextra -Werror
 INCLUDES = -I libft.h
-.co.o: 
-		${CC} ${COMPILE_FLAGS} -c $< -o ${<:.c=.o} ${INCLUDES}
+.c.o:
+		${CC} ${COMPILE_FLAGS} -c $< -o ${<:.c=.o} #${INCLUDES}
 
 ${NAME}: ${OBJS}
-		 ${LIB} ${NAME} ${OBJS}
+		 ar rcs ${NAME} ${OBJS}
 all: ${NAME}
 
 clean:
