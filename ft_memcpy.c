@@ -6,44 +6,43 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:11:00 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/16 19:36:23 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/23 23:17:40 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
 
+	if (!dst || !src)
+		return (0);
 	i = 0;
 	while (i < n)
 	{
 		((char *)dst)[i] = ((char *)src)[i];
 		i++;
 	}
-	((char *)dst)[i] = 0;
-	return ((char *)dst);
+	return (dst);
 }
 /*
-// copies n bytes from src to dst // doesnt care about overlapping, check memmove for that
+// copies n bytes from src to dst 
+// doesnt care about overlapping, check memmove for that
 #include <stdio.h>
 #include <string.h>
 int main()
 {
-	int test1[] = {1,2,3,4,5};
-	//int test2[10] = "mozou";
-	
 	int i = 0;
-	int n  = sizeof(test1)/sizeof(int);
-	int tofill[n];
+	char  tofill[100];
+	char src[] = {0,0};
 	i++;
-	
-	ft_memcpy(tofill,test1,sizeof(test1));
+	printf("%p\n",ft_memcpy(tofill,src,2));
+	printf("%p",&tofill[0]);	
 	i = 0;
-	while(tofill[i])
+		while(tofill[i])
 	{
-		printf(":%d:",tofill[i]);
+		printf(":%c:",[i]);
 		i++;
 	}
 	

@@ -6,11 +6,11 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:10:48 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/16 19:38:47 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/24 19:53:22 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char nb)
+int	ft_isdigit(int nb)
 {
 	if (nb >= '0' && nb <= '9')
 		return (1);

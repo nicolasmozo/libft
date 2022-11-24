@@ -6,11 +6,11 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:10:37 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/16 19:39:27 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/24 18:13:45 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char str)
+int	ft_isalpha(int str)
 {
 	if ((str >= 'A' && str <= 'Z') || (str >= 'a' && str <= 'z'))
 		return (1);

@@ -35,7 +35,8 @@ int	ft_atoi(const char *str)
 	return (result * negative);
 }
 /*
-// finds ints within a string and returns the int / null if whetever before the int
+// finds ints within a string and returns the int 
+// null if whetever before the int
 #include <stdio.h>
 #include <stdlib.h>
 int main()
