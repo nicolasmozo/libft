@@ -6,7 +6,7 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:11:28 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/24 23:43:31 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/25 21:03:49 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,44 +35,24 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst[size_dst] = 0;
 	return (total);
 }
+/*
 // appends dstsize values of src at the end of dst - 
 #include <stdio.h>
 #include <string.h>
-#include <bsd/string.h>
+//#include <bsd/string.h>
 int main()
 {
-	/*
-	char src[10] = "nicol";
-	//char dst[10] = "hola";
+	char *str = "the cake is a lie !\0I'm hidden lol\r\n";
+	char buff1[0xF00] = "there is no stars in the sky";
+	char buff2[0xF00] = "there is no stars in the sky";
+	size_t max = strlen("the cake is a lie !\0I'm hidden lol\r\n") + 4;
 
-	printf("%zu", ft_strlcat(src,&src[2],1));
-
-	int i = 0;
-	while(src[i])
-	{
-		printf("%c", src[i]);
-		i++;
-	}
-
-	printf("%lu", sizeof(src));
+	ft_strlcat(buff2, str, max);
+	if (!strcmp(buff1, buff2))
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);	
 	
-	*/
-	char *src = "aaa";
-	char dst1[20];
-	char dst2[20];
-	int ret1;
-	int ret2;
-
-	memset(dst1, 'B', sizeof(dst1));
-	memset(dst2, 'B', sizeof(dst2));
-	strlcat(dst1, src, 20);
-	strlcat(dst1, src, 20);
-	ret1 = strlcat(dst1, src, 20);
-	ft_strlcat(dst2, src, 20);
-	ft_strlcat(dst2, src, 20);
-	ret2 = ft_strlcat(dst2, src, 20);
-
-	printf("normal %d,this is mine %d",ret1,ret2);
+	
 	
 }
-
+*/

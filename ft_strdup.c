@@ -6,7 +6,7 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 19:00:50 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/23 22:57:19 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/25 19:16:18 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 char	*ft_strdup(const char *s1)
 {
+	char	*ptr;
 	int		i;
 	int		len;
-	char	*ptr;
 
 	i = 0;
 	len = ft_strlen(s1);
-	ptr = (char *) malloc(sizeof(char) * (len + 1));
-	while (i < len)
+	ptr = (char *) malloc(len * sizeof(char) + 1);
+	if(!ptr)
+		return (0);
+	while (s1[i])
 	{
 		ptr[i] = s1[i];
 		i++;
@@ -36,7 +38,18 @@ char	*ft_strdup(const char *s1)
 #include <string.h>
 int main()
 {
-	char uno[] = "lorem ipsum dolor sit amet";    
-	printf("%s with size %lu\n",ft_strdup(uno), sizeof(uno));
-	printf("%s with size %lu\n",strdup(uno), sizeof(uno));
-}*/
+	//char uno[] = "lorem ipsum dolor sit amet";    
+	//printf("%s with size %lu\n",ft_strdup(uno), sizeof(uno));
+	//printf("%s with size %lu\n",strdup(uno), sizeof(uno));
+	char *ptr;
+	char *pt2;
+
+	ptr = ft_strdup("lol");
+	pt2 = strdup("lol");
+	printf("%p\n", ptr);
+	printf("%p\n", pt2);
+	printf("%p\n", &pt2[0]);
+	if(ptr == pt2)
+		printf("%s", "worksss");
+}
+*/
