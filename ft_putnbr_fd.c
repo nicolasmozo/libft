@@ -6,7 +6,7 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 22:58:05 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/26 02:41:24 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/21 23:29:58 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,7 @@ void	ft_putnbr_fd(int n, int fd)
 int main()
 {
 	int fd = creat("1.txt",0644);
-	int uno = (-2147483647 -1);
+	int uno = 12345;
 	ft_putnbr_fd(uno, fd);
-	//-2147483648
-	// int i = (-2147483647 -1);
-	// char buff[0xF0];
-
-	// fd_to_buffer(2);
-	// ft_putnbr_fd(i, 2);
-	// write(2, "", 1);
-	// get_fd_buffer(2, buff, 0xF0);
-	// if (atoi(buff) == i)
-	// 	exit(TEST_SUCCESS);
-	// exit(TEST_FAILED);
-
 }
-
 */

@@ -6,7 +6,7 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:06:17 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/25 20:56:08 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/26 23:11:24 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*sub;
-	unsigned int	len_str;
+	unsigned int	len_dst;
 	unsigned int	i;
 
-	if (!s)
-		return (0);
-	len_str = ft_strlen (s);
-	if (len_str < start)
+	len_dst = len;
+	if (len < start)
 	{
 		sub = malloc(sizeof(char));
 		sub[0] = 0;
 		return (sub);
 	}
-	sub = malloc((len + 1) * sizeof(char));
+	if (len > (size_t)ft_strlen(s))
+		len_dst = ft_strlen(&s[start]);
+	sub = malloc((len_dst + 1) * sizeof(char));
 	if (!(sub))
 		return (0);
 	i = 0;
-	while (i < len)
+	while (i < len_dst && i < len)
 	{
 		sub[i] = s[start + i];
 		i++;
@@ -40,26 +40,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (sub);
 }
 /*
-#include <stdio.h>
 // gets a subsstring of s from start to len bytes
-#include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
-
 int main()
 {
-	
-	char str[] = "i just want this part #############";
-	size_t size = 20;
-
-	char *ret = ft_substr(str, 5, size);
-	printf("%d", ft_strlen(ret));
-	str[size + 5] = 0;
-	if (!memcmp(ret, str + 5, size + 1))
-	{
-		free(ret);
-		return printf("%s", "sucess");
-	}
-	free(ret);
-	return printf("%s", "wrong");
+	char *str = strdup("0123456789");
+	printf("%s", ft_substr(str, 9, 10));
 }
 */

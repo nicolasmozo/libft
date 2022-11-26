@@ -6,7 +6,7 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:53:31 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/16 19:40:42 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/26 19:57:00 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	char	*ptr;
 
+	if (!count || !size || count == SIZE_MAX || size == SIZE_MAX)
+		return (0);
 	ptr = malloc (count * size);
 	if (!(ptr))
 		return (0);
@@ -25,16 +27,20 @@ void	*ft_calloc(size_t count, size_t size)
 /*
 // allocates size * count bytes of memory returns a pointer to it
 #include <stdio.h>
+#include <stdint.h>
 int main()
 {   
-	char *uno = ft_calloc(3,sizeof(char));
-	char *dos = calloc(3,sizeof(char));
+	char *uno = ft_calloc(SIZE_MAX,SIZE_MAX);
+	//char *dos = calloc(SIZE_MAX,SIZE_MAX);
 	printf("%p with size %lu\n", uno, sizeof(uno));
-	printf("%p with size %lu\n", dos, sizeof(dos));
+	//printf("%p with size %lu\n", dos, sizeof(dos));
 
+	
 	while(*uno)
 	{
 		printf("%c", *uno);
 		uno++;
 	}
-}*/
+	
+}
+*/

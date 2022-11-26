@@ -6,7 +6,7 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:11:56 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/24 21:30:42 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/26 19:13:37 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	int				i;
-	char			*cast_s;
+	unsigned char	cast_c;
 
-	cast_s = (char *)s;
+	cast_c = (unsigned char)c;
 	i = ft_strlen(s);
 	while (i >= 0)
 	{
-		if (s[i] == c)
-			return (&cast_s[i]);
+		if (s[i] == cast_c)
+			return ((char *)s + i);
 		i--;
 	}
 	return (0);
@@ -33,23 +33,15 @@ char	*ft_strrchr(const char *s, int c)
 // can also locate '\0'
 #include <string.h>
 int main()
-
+{
+	char s[] = "tripouille";
+	char *d1 = ft_strrchr(s, 't' + 256); 
+	char *d2 = strrchr(s, 't' + 256);
+	printf("%p\n %p", d1, d2);
+	//printf("%p", &s[0]);
+	//int i = 0;
+	//while(s[i])
+	//	printf("adress %p\n", &s[i++]);
 	
-	char *src = "\0";
-	char *d1 = strrchr(src, 'a');
-	char *d2 = ft_strrchr(src, 'a');
-	//char c = 'B';
-	//printf("%p\n", ft_strrchr(s,c));
-	//printf("%p\n", strrchr(s,c));
-	printf("norma is %p , ft_ is %p", d1,d2);
-	
-	char src [10];//= electric_alloc(10);
-
-	
-	strcpy(src, "123456789");
-	printf("%p",ft_strrchr(src, 'a'));
-	//src = electric_alloc_rev(10);
-	strcpy(src, "123456789");
-	printf("%p",ft_strrchr(src, 'a'));
 }
 */

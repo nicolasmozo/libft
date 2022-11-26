@@ -6,7 +6,7 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 22:38:47 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/23 19:23:32 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/26 19:50:46 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
 
 int		ft_toupper(int c);
 int		ft_tolower(int c);
@@ -51,6 +52,7 @@ int		ft_isalnum(int c);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *str, size_t n);
 int		ft_atoi(const char *str);
+
 
 #endif
 // Norminette: -R CheckDefine 
