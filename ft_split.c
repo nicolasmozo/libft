@@ -6,104 +6,71 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 21:10:01 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/19 21:44:21 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/25 23:43:50 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	if_charset( char const *s, char c)
+static int	count(const char *s, char c)
 {
-	if (*s == c)
-		return (1);
-	if (*s == 0)
-		return (1);
-	return (0);
-}
-
-static int	count_words(char const *str, char c)
-{
-	int	i;
 	int	counter;
 
-	i = 0;
 	counter = 0;
-	while (str[i])
+	while (*s)
 	{
-		if (str[i] && if_charset(&str[i], c))
-			i++;
-		else
-		{
+		while (*s == c)
+			++s;
+		if (*s)
 			counter++;
-			i++;
-		}
+		while (*s && *s != c)
+			++s;
 	}
 	return (counter);
 }
 
-static	int	count_character(char const *str, char c)
+char	**ft_split(char const *str, char c)
 {
-	int	i;
+	char			**split;
+	int				j;
+	char const		*temp;
 
-	i = 0;
-	while (str[i] && !if_charset(&str[i], c))
-		i++;
-	return (i);
-}
-
-static	char	*get_array(const char *str, int len)
-{
-	char	*tab;
-	int		i;
-
-	i = 0;
-	tab = (char *) malloc (sizeof(char) * len + 1);
-	while (i < len)
-	{
-		tab[i] = str[i];
-		i++;
-	}
-	return (tab);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**split;
-	int		i;
-	int		lenght_word;
-	int		j;
-
-	j = 0;
-	i = 0;
-	split = (char **)malloc(sizeof(char) * count_words(s, c) + 1);
-	if (!(split))
+	split = malloc(sizeof(char *) * count(str, c) + 1);
+	if (!split)
 		return (0);
-	while (s[i])
+	j = 0;
+	while (*str)
 	{
-		if (s[i] && if_charset(&s[i], c))
-			i++;
-		else
+		while (*str == c)
+			str++;
+		temp = str;
+		while (*temp && *temp != c)
+			temp++;
+		if (*temp == c || temp > str)
 		{
-			lenght_word = count_character(&s[i], c);
-			split[j] = get_array(&s[i], lenght_word);
+			split[j] = ft_substr(str, 0, temp - str);
+			str = temp;
 			j++;
-			i += lenght_word;
 		}
 	}
+	split[j] = 0;
 	return (split);
 }
-/*
+
 // Splits string depending on the delimiter
+/*
 #include <stdio.h>
 int main()
 {
 	int i = 0;
-	char a[] = "hola nicolas, como esta ?";
+	char *string = "";
+	//char a[] = "hola nicolas, como esta ?";
 	char **tab;
-	tab = ft_split(a, 'c');
+	tab = ft_split(string, ' ');
 	while(tab[i])
 	{
 		printf(":%s:\n", tab[i]);
 		i++;
 	}
-}*/
+}
+*/
