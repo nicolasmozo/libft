@@ -6,7 +6,7 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:11:00 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/23 23:17:40 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/27 13:57:47 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (!dst || !src)
+	if (!dst)
 		return (0);
 	i = 0;
 	while (i < n)
@@ -45,5 +45,15 @@ int main()
 		printf(":%c:",[i]);
 		i++;
 	}
+	char dest[100];
+	memset(dest, 'A', 100);
+	ft_memcpy(dest, "coucou", 0);
+	/// check(dest[0] == 'A'); showLeaks();
+	char *rtn = (char *)ft_memcpy(dest, NULL, 0);
+	printf("%s\n", dest);
+	printf("%s", rtn);
 	
-}*/
+	//  check(rtn == dest && dest[0] == 'A'); showLeaks();
+}
+
+*/

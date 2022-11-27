@@ -6,30 +6,14 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 19:00:50 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/26 20:09:01 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/27 18:32:45 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 char	*ft_strdup(const char *s1)
-{
-	/*
-	int		i;
-	int		len;
-	char	*ptr;
-
-	i = 0;
-	len = ft_strlen(s1);
-	ptr = (char *) malloc(sizeof(char) * (len + 1));
-	while (i < len)
-	{
-		ptr[i] = s1[i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
-	*/
+{	
 	char	*ptr;
 	int		i;
 	int		len;
@@ -37,7 +21,7 @@ char	*ft_strdup(const char *s1)
 	i = 0;
 	len = ft_strlen(s1);
 	ptr = (char *) malloc(len * sizeof(char) + 1);
-	if(!ptr)
+	if (!ptr)
 		return (0);
 	while (s1[i])
 	{

@@ -54,8 +54,4 @@ clean:
 fclean: clean
 		${RM} ${NAME}
 
-so:
-	$(CC) -nostartfiles -fPIC $(COMPILE_FLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
-
 re: fclean all	

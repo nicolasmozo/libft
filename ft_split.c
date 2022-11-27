@@ -6,7 +6,7 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 21:10:01 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/19 21:44:21 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/27 18:25:43 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,9 @@ static int	count_words(char const *str, char c)
 	counter = 0;
 	while (str[i])
 	{
-		if (str[i] && if_charset(&str[i], c))
-			i++;
-		else
-		{
+		if (str[i] == c)
 			counter++;
-			i++;
-		}
+		i++;
 	}
 	return (counter);
 }
@@ -58,11 +54,14 @@ static	char	*get_array(const char *str, int len)
 
 	i = 0;
 	tab = (char *) malloc (sizeof(char) * len + 1);
+	if (!tab)
+		return (0);
 	while (i < len)
 	{
 		tab[i] = str[i];
 		i++;
 	}
+	tab[i] = 0;
 	return (tab);
 }
 
@@ -75,7 +74,7 @@ char	**ft_split(char const *s, char c)
 
 	j = 0;
 	i = 0;
-	split = (char **)malloc(sizeof(char) * count_words(s, c) + 1);
+	split = malloc(sizeof(char *) * count_words(s, c) + 2);
 	if (!(split))
 		return (0);
 	while (s[i])
@@ -90,6 +89,7 @@ char	**ft_split(char const *s, char c)
 			i += lenght_word;
 		}
 	}
+	split[j] = 0;
 	return (split);
 }
 /*
@@ -98,12 +98,13 @@ char	**ft_split(char const *s, char c)
 int main()
 {
 	int i = 0;
-	char a[] = "hola nicolas, como esta ?";
+	char a[] = "hola nicolas, como esta?";
 	char **tab;
-	tab = ft_split(a, 'c');
+	tab = ft_split(a, ' ');
 	while(tab[i])
 	{
 		printf(":%s:\n", tab[i]);
 		i++;
 	}
-}*/
+}
+*/

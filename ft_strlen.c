@@ -6,13 +6,15 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:11:39 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/16 19:20:55 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:01:52 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *s)
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])
