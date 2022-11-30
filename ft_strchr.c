@@ -6,7 +6,7 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:11:18 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/26 21:33:35 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/29 21:11:57 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ char	*ft_strchr(const char *s, int c)
 	cast_c = (unsigned char)c;
 	if (!c && c != 0)
 		return ((char *)s);
-	while (*s + 1)
+	while (*s)
 	{
 		if (*s == cast_c)
 			return ((char *)s);
 		s++;
 	}
+	if(*s == 0)
+		return ((char*)s);
 	return (0);
 }
 /*

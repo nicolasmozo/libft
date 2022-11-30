@@ -6,7 +6,7 @@
 /*   By: omozo-av <omozo-av@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:53:31 by omozo-av          #+#    #+#             */
-/*   Updated: 2022/11/26 19:57:00 by omozo-av         ###   ########.fr       */
+/*   Updated: 2022/11/29 18:56:04 by omozo-av         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	char	*ptr;
 
-	if (!count || !size || count == SIZE_MAX || size == SIZE_MAX)
+	if (!count || !size)
+		return (malloc(0));
+	if (count == SIZE_MAX || size == SIZE_MAX)
 		return (0);
 	ptr = malloc (count * size);
 	if (!(ptr))
@@ -30,7 +32,7 @@ void	*ft_calloc(size_t count, size_t size)
 #include <stdint.h>
 int main()
 {   
-	char *uno = ft_calloc(SIZE_MAX,SIZE_MAX);
+	char *uno = ft_calloc(SIZE_MAX,0);
 	//char *dos = calloc(SIZE_MAX,SIZE_MAX);
 	printf("%p with size %lu\n", uno, sizeof(uno));
 	//printf("%p with size %lu\n", dos, sizeof(dos));
@@ -41,6 +43,7 @@ int main()
 		printf("%c", *uno);
 		uno++;
 	}
+	
 	
 }
 */
